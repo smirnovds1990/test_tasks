@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}
+  Выход
+{% endblock %}
+{% block content %}
+  <div class="container">
+    <div class="py-4">Вы вышли из своей учетной записи. Ждем вас снова.</div>
+    <div>
+      <a class="btn btn-primary py-2" href="{% url 'users:login' %}">Войти</a>
+    </div>
+  </div>
+{% endblock %}

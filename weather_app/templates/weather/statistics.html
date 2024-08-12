@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}
+  Статисктика
+{% endblock %}
+{% block content %}
+  <div class="container">
+    <h5>Ваша статистика (количество запросов):</h5>{% for city in current_user_cities %}
+      {{ city.city_title }} - {{ city.count }}<br />
+    {% endfor %}
+  </div>
+  <div class="container">
+    <hr />
+  </div>
+  <div class="container">
+    <h5>Общая статистика (количество запросов):</h5>{% for city in all_cities %}
+      {{ city.city_title }} - {{ city.count }}<br />
+    {% endfor %}
+  </div>
+{% endblock %}

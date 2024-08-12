@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}
+  Вход
+{% endblock %}
+{% block content %}
+  <div class="container">
+    <form action="{% url 'users:login' %}" method="post">
+      {% csrf_token %}
+      <h1>Войти</h1>
+      {% for field in form %}
+        <div class="mb-3">
+          <label class="form-label">{{ field.label }}</label>
+          <div>{{ field }}</div>
+          <div class="form-text">{{ field.help_text }}</div>
+        </div>
+        {% if form.errors %}
+          <div class="errors">
+            <ul>
+              {% for field, errors in form.errors.items %}
+                <li>{{ field }}: {{ errors }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      {% endfor %}
+      <button class="btn btn-primary py-2" type="submit">Войти</button>
+    </form>
+  </div>
+{% endblock %}

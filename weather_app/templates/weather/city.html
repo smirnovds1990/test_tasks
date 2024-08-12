@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}
+  Погода
+{% endblock %}
+{% block content %}
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+    th,
+    td {
+      padding: 8px;
+      text-align: left;
+    }
+  </style>
+  <div class="container">
+    <h3>Погода в городе {{ city|title }}</h3>
+    <table>{{ weather_info|safe }}</table>
+  </div>
+{% endblock %}

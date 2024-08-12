@@ -1,0 +1,23 @@
+<div class="d-flex justify-content-between align-items-center">
+  {% if request.user.is_authenticated %}
+    <ul class="nav">
+      <li>
+        <a href="{% url 'weather:index' %}" class="nav-link px-2">Главная страница</a>
+      </li>
+      <li>
+        <a href="{% url 'weather:statistics' %}" class="nav-link px-2">Статистика</a>
+      </li>
+    </ul>
+    <div class="ms-auto">
+      <form method="post" action="{% url 'users:logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Выйти</button>
+      </form>
+    </div>
+  {% else %}
+    <div class="ms-auto">
+      <a class="btn btn-primary" href="{% url 'users:signup' %}">Зарегистрироваться</a>
+      <a class="btn btn-primary" href="{% url 'users:login' %}">Войти</a>
+    </div>
+  {% endif %}
+</div>
