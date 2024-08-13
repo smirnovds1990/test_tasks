@@ -8,8 +8,8 @@ ___
 
 **Docker**
 ```sh
-git clone https://github.com/smirnovds1990/weather_app.git
-cd weather_app
+git clone https://github.com/smirnovds1990/test_tasks.git
+cd test_tasks/weather_app
 touch .env
 # Добавить нужные переменные в .env-файл (смотреть .env.example)
 docker compose up
@@ -17,8 +17,8 @@ docker compose up
 ```
 **pip**
 ```sh
-git clone https://github.com/smirnovds1990/weather_app.git
-cd weather_app
+git clone https://github.com/smirnovds1990/test_tasks.git
+cd test_tasks/weather_app
 python -m venv venv
 source venv/bin/activate (Windows - source venv/Scripts/activate)
 touch .env
