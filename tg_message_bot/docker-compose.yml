@@ -1,0 +1,43 @@
+volumes:
+  mongo_volume:
+  redis_volume:
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: ./app/Dockerfile
+    env_file:
+      - ./.env
+    depends_on:
+      - mongo
+      - redis
+  tg_bot:
+    build:
+      context: .
+      dockerfile: ./tg_bot/Dockerfile
+    env_file:
+      - ./.env
+    depends_on:
+      - mongo
+      - redis
+  mongo:
+    image: mongo:7.0.14
+    restart: always
+    ports:
+      - "27018:27018"
+    volumes:
+      - mongo_volume:/data/db
+  redis:
+    image: redis:7.4.0
+    ports:
+      - "6380:6380"
+    volumes:
+      - redis_volume:/data
+    restart: always
+  nginx:
+    build: ./nginx/
+    ports:
+      - "8000:80"
+    depends_on:
+      - backend
+    restart: always

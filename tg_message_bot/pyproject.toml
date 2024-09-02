@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "tg-message-bot"
+version = "0.1.0"
+description = ""
+authors = ["smirnovds1990 <smirnovds1990@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = {extras = ["standard"], version = "^0.112.1"}
+motor = "^3.5.1"
+aiogram = "^3.12.0"
+fastapi-cache2 = {extras = ["redis"], version = "^0.2.2"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
