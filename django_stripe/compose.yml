@@ -1,0 +1,16 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    env_file:
+      - .env
+    environment:
+      - HOST=${HOST}
+      - PORT=${PORT}
+    ports:
+      - "8000:8000"
+    volumes:
+      - sqlite_data:/django_stripe/
+volumes:
+  sqlite_data:
